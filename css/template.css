@@ -1,0 +1,267 @@
+/* general css */
+.centered {
+	max-width:990px;
+	margin: 0 auto;
+}
+.iconRound {
+	width:26px;
+	display: inline-block;
+	background:#77787b;
+	color:#fff;
+	text-align: center;
+	-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;
+}
+a.iconRound {
+	text-decoration: none;
+}
+a.iconRound:hover {
+	background:#b77f35;
+	color:#fff;
+	text-decoration: none;
+	-webkit-transition: background-color 150ms linear;
+	-moz-transition: background-color 150ms linear;
+	-o-transition: background-color 150ms linear;
+	-ms-transition: background-color 150ms linear;
+	transition: background-color 150ms linear;
+}
+.iconRound .fa {
+	line-height:26px;
+	height:26px;
+	display: block;
+}
+
+
+/* flipping */
+.flipper:hover:after {
+	transform: rotateY(0deg);
+}
+.flipper:hover:before {
+	transform: rotateY(180deg);
+}
+
+
+.flipper {
+	transform-style: preserve-3d;
+	position: relative;
+	line-height:28px;
+	height:28px;
+	width: 28px;
+	text-align:center;
+	top:0;
+	-webkit-perspective: 180px;
+	-moz-perspective: 180px;
+	perspective: 180px;
+	display:inline-block;
+}
+.flipper:before, .flipper:after {
+
+	transition: 0.8s;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	transform: rotateX(0deg) rotateY(0deg);
+	
+	-webkit-transform-style: preserve-3d;
+		 -moz-transform-style: preserve-3d;
+					transform-style: preserve-3d;
+
+	-webkit-backface-visibility: hidden;
+		 -moz-backface-visibility: hidden;
+					backface-visibility: hidden;
+}
+
+
+.flipper:before {
+	width:100%;
+	z-index: 2;
+	transform: rotateY(0deg);
+	background:#5bc0de;
+	color:#fff;
+}
+.flipper:after {
+	width:100%;
+	content:"";
+	-webkit-transform: rotateY(-180deg);
+	 -moz-transform: rotateY(-179deg); /* setting to 180 causes an unnatural-looking half-flip */
+	transform: rotateY(-179deg);
+	background:#888;
+	color:#fff;
+}
+.flipper.fa-facebook:after {
+	content:"\f09a";
+}
+.flipper.fa-twitter:after {
+	content:"\f099";
+}
+.flipper.fa-phone:after {
+	content:"\f095";
+}
+.flipper.fa-linkedin:after {
+	content:"\f0e1";
+}
+
+/* --------------------------------------
+ standaard classes */
+.boxShadow {
+	-webkit-box-shadow: 0 0px 10px rgba(0,0,0,0.3);
+		-moz-box-shadow: 0 0px 10px rgba(0,0,0,0.3);
+			box-shadow: 0 0px 10px rgba(0,0,0,0.3);
+}
+.rounded {
+	-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;
+}
+
+
+
+/* --------------------------------------
+ framework */
+html, body {
+	height:100%;
+ }
+ #container {
+	min-height:100%;
+	position:relative;
+	background:#fff;
+	-ms-transform-origin: 0% 0%; /* IE 9 */
+		-webkit-transform-origin: 0% 0%; /* Chrome, Safari, Opera */
+			transform-origin: left top 0px;
+	-webkit-backface-visibility: hidden; /* voorkomt flikkering safari */
+ }
+
+.footerHeight {
+	height:100px;
+}
+ 
+/* --------------------------------------
+ header */
+header {
+	background:#2196F3;
+	color:#fff;
+	position:relative;
+}
+#logo {
+	padding:15px;
+	float:left;
+	font-size:14pt;
+	font-weight:300;
+}
+#headerRight {
+	float:right;
+	padding:15px 0 0;
+}
+
+nav {
+	background:#BBDEFB;
+}
+
+/* burgermenu */
+.mobMenuBtn {
+	display:block;
+	width:38pt;
+	padding:4px 0;
+	cursor:pointer;
+	float:right;
+	margin-top:13px;
+}
+.mobMenuLine {
+	margin:0 7pt 5pt;
+	height:4px;
+	background:rgba(0,0,0,0.5);
+}
+.mobMenuText {
+	text-align:center;
+	color:#000;
+	font-size:80%;
+	margin-top:-7pt;
+	opacity:0.5;
+	display:none;
+}
+
+
+
+/* --------------------------------------
+ footer */
+footer {
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#fff;
+}
+#footerInner {
+	padding:10px 20px;
+	text-align:center;
+}
+.socialIcons {
+	text-align:center;
+}
+
+/* --------------------------------------
+ sidemenu */
+
+#containerOverlay {
+	position: absolute;
+	content:"";
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	display:none;
+	opacity:0;
+	background:#000;
+	z-index: 100;
+	-webkit-backface-visibility: hidden;
+	cursor: e-resize;
+}
+#sideMenu {
+	width:320px;
+	right:-320px;
+	position: fixed;
+	z-index: 100;
+	top:0;
+	bottom:0;
+	background:#eaeaea;
+	padding:0;
+	max-height: 100%;
+	overflow:auto;
+	
+	-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+			box-sizing: border-box;
+	
+}
+#sideMenuInner {
+	padding:0;
+	position:relative;
+}
+#sideMenuTop {
+	background: #f1f1f1;
+} 
+#sideMenu h3 {
+	margin:0;
+	padding:0 0 0 15px;
+	line-height: 50px;
+}
+#sideMenuHide {
+	float:right;
+	line-height: 50px;
+	width:50px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 22pt;
+}
+
+#sideMenu ul.menu {
+	
+}
+
+
+#sideMenuCenter {
+	padding:30px 0px 30px;
+}
+
+
+
+
+/* sidemenu */
