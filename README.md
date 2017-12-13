@@ -1,4 +1,4 @@
-
+# startdoc
 Een boilerplate template voor html projecten
 
 # JS
