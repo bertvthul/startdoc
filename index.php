@@ -8,24 +8,18 @@
 	<title>Project A</title>
 	
 	<!-- jquery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	
 	
 	<!-- bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
 	<!-- fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700,900' rel='stylesheet' type='text/css'>
 	
 	<!-- font awsome -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	
-	<!-- transit: soepele animaties -->
-	<script src="js/jquery.transit.min.js" type="text/javascript"></script>
-	
-	<!-- animatein: elementen animeren wanneer zichtbaar -->
-	<script src="js/animatein.min.js" type="text/javascript"></script>
 	
 	
 	<!-- site -->
@@ -108,7 +102,7 @@
 				<div id="footerInner">
 					Copyright 2015
 				</div>
-				<div class="socialIcons" data-animatein="ttb" data-child=".fa" data-distance="40" data-speed="200" data-delay="100">
+				<div class="socialIcons">
 					<a href="#" target="_blank" class="flipper fa fa-facebook hasTooltip" title="Volg ons op facebook"></a> <a href="#" target="_blank" class="flipper fa fa-twitter"></a> <a href="#" target="_blank" class="flipper fa fa-linkedin"></a> <a href="#" target="_blank" class="flipper fa fa-phone"></a>
 				</div>
 			</div>
