@@ -326,7 +326,7 @@ ul.fCards:after {
 	left:0;
 	right:0;
 	bottom:0;
-	background: #c00d0e;
+	background: #ee6e73;
 	opacity: 0;
 	pointer-events: none;
 	z-index: 2;
@@ -1233,7 +1233,7 @@ footer ul, #footer li {
 			width: 50px;
 			-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;
 			text-align: center;
-			background: #e74c3c;
+			background: #ee6e73;
 		}
 
 		.mobMenuLine {
