@@ -26,6 +26,10 @@
 		
 		
 		
+		//Album
+		fAlbumInit();
+		
+		
 		
 		/* fExpand */
 		$(document).on('click','.fExpand .fExpandTitle',function(){
@@ -518,6 +522,186 @@
 		
 		
 	}
+	
+	
+	
+	
+	
+	/* ---------------------
+	FOTO GRID */
+	
+	function fAlbumInit(){
+		
+		jQuery('.fFotoGrid .fFoto').click(function(){
+			
+			var startoffsettop = jQuery(this).find('.img').offset().top - jQuery(window).scrollTop();
+			var startoffsetleft = jQuery(this).find('.img').offset().left;
+			var startwidth = jQuery(this).find('.img').width();
+			var startheight = jQuery(this).find('.img').height();
+			
+			//open
+			
+			
+			
+			
+			var count = jQuery(this).data('count');
+			
+			
+			
+			
+			
+			if(jQuery(this).parents('.fFotoGrid').hasClass('active')){
+				jQuery(this).parents('.fFotoGrid').toggleClass('active');
+				fgrImgHide();
+			} else {
+			
+				jQuery(this).parents('.fFotoGrid').toggleClass('active');
+				
+				fgrImgShow(count);
+			
+				jQuery(this).css('left',startoffsetleft);
+				jQuery(this).css('top',startoffsettop);
+				jQuery(this).css('right',jQuery(window).width() - (startoffsetleft + startwidth));
+				jQuery(this).css('bottom',jQuery(window).height() - (startoffsettop + startheight));
+					
+				jQuery(this).css('padding','0px');
+				
+				
+				
+				
+				fgrobj=jQuery(this);
+				setTimeout(function(){ 
+				jQuery(fgrobj).parents('.fFotoGrid').addClass('animate');
+				setTimeout(function(){ 
+					
+					
+					jQuery(fgrobj).css('left','');
+					jQuery(fgrobj).css('top','');
+					jQuery(fgrobj).css('right','');
+					jQuery(fgrobj).css('bottom','');
+					jQuery(fgrobj).css('padding','');
+	
+	
+					
+				},10);
+				},10);
+			} 
+			
+			
+			
+			
+			
+		});
+		
+		jQuery('.fFotoGrid .fFotoNav').click(function(){
+			
+			if(jQuery(this).hasClass('fFotoClose')){
+				fgrImgHide();
+				jQuery('.fFotoGrid.active').removeClass('active');
+				return;
+			}
+			
+			var curactive = jQuery('.fFotoGrid.active .fFoto.active').data('count');
+			var addto=1;
+			if(jQuery(this).hasClass('fFotoPrev')){
+				addto=-1;
+			}
+			if(jQuery('.fFotoGrid.active .fFoto.count'+(curactive+addto))[0]){
+				fgrImgHide();
+				fgrImgShow(curactive+addto);
+			
+			} else {
+				fgrImgHide();
+				jQuery('.fFotoGrid.active').removeClass('active');
+			}
+			
+		});
+		jQuery('.fFotoGrid ul.fFotoPagination li').click(function(){
+			var count = jQuery(this).data('count');
+			
+			fgrImgHide();
+			fgrImgShow(count);
+			
+			
+		});
+		jQuery(document).bind('keydown', function (e) {
+			if(jQuery('.fFotoGrid.active')[0]){
+				var code = (e.keyCode ? e.keyCode : e.which);
+				
+				if(code == 39 || code == 37) { //arrow right
+					var curactive = jQuery('.fFotoGrid.active .fFoto.active').data('count');
+					var addto=1;
+					if(code == 37){//arrow left
+						addto=-1;
+					}
+					if(jQuery('.fFotoGrid.active .fFoto.count'+(curactive+addto))[0]){
+						fgrImgHide();
+						fgrImgShow(curactive+addto);
+						
+					} else {
+						fgrImgHide();
+						
+						jQuery('.fFotoGrid.active').removeClass('active');
+					}
+				} else if(code == 27){
+					fgrImgHide();
+					
+					jQuery('.fFotoGrid.active').removeClass('active');
+					
+				}
+			}
+		});
+		
+		
+		
+	} /* fotogrid setup */
+	
+	
+	function fgrImgShow(count){
+		
+		jQuery('.fFotoGrid.active .fFoto.count'+count).addClass('active');
+		jQuery('.fFotoGrid ul.fFotoPagination li.count'+count).addClass('active');
+		
+		
+		
+		var largebg = jQuery('.fFotoGrid.active .fFoto.count'+count+' .img').data('img-large');
+		jQuery('.fFotoGrid.active .fFoto.count'+count).addClass('loading');
+		jQuery('<img src="'+largebg+'" />').on("load",function(){
+			jQuery('.fFotoGrid.active .fFoto.count'+count+' .img').css('background-image','url('+largebg+')');
+			jQuery('.fFotoGrid.active .fFoto.count'+count).removeClass('loading');
+		});
+		
+		
+		
+		
+	}
+	function fgrImgHide(){
+		var curactive = jQuery('.fFotoGrid .fFoto.active').data('count');
+		
+		
+		
+		var mediumbg = jQuery('.fFotoGrid .fFoto.active .img').data('img-medium');
+		
+		jQuery('.fFotoGrid .fFoto.active .img').css('background-image','url('+mediumbg+')');
+		
+		
+		jQuery('.fFotoGrid .fFoto.active').removeClass('active');
+		jQuery('.fFotoGrid ul.fFotoPagination li.active').removeClass('active');
+		
+		
+		jQuery('.fFotoGrid').removeClass('animate');
+		
+	}
+
+	
+	
+	
+	
+	/* ------------ fotoGrid */
+	
+	
+	
+	
 	
 	
 	
